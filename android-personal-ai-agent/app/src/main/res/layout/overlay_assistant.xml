@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Floating overlay layout — drawn on top of all apps.
+    Intentionally compact: shows status, partial text, and a dismiss button.
+    The root card is draggable via touch event handling in FloatingOverlayService.
+-->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:elevation="16dp"
+    app:cardCornerRadius="20dp"
+    app:cardBackgroundColor="@color/overlay_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header row: AI label + dismiss button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <!-- AI icon placeholder (tinted purple) -->
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="🤖"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ai_activated"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Dismiss (×) button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_dismiss_overlay"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:text="×"
+                android:textSize="20sp"
+                android:textColor="#FFFFFF"
+                android:padding="0dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                style="@style/Widget.Material3.Button.TextButton" />
+
+        </LinearLayout>
+
+        <!-- Current state label (Listening / Thinking / Speaking) -->
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ai_state_listening"
+            android:textColor="#CCFFFFFF"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Live transcript / AI response text -->
+        <TextView
+            android:id="@+id/tv_response"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="6"
+            android:ellipsize="end"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:lineSpacingMultiplier="1.4"
+            android:minHeight="48dp" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
