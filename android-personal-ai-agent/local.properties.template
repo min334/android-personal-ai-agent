@@ -1,8 +1,0 @@
-# Copy this file to local.properties and fill in your values.
-# NEVER commit local.properties to version control — it is already in .gitignore.
-#
-# Get a free OpenRouter API key at: https://openrouter.ai/keys
-# The app also lets you enter the key at runtime in the Settings card (recommended).
-
-sdk.dir=/path/to/your/Android/sdk
-OPENROUTER_API_KEY=sk-or-your-key-here
